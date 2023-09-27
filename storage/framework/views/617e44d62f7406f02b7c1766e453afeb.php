@@ -76,5 +76,6 @@
 
       <script src="assets/js/theme.js"></script>
 
+
    </body>
 </html><?php /**PATH C:\xampp64\xampp22\htdocs\Hospital\resources\views/user/home.blade.php ENDPATH**/ ?>

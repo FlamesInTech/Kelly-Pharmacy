@@ -1,6 +1,6 @@
 <section class="subscribe_section">
          <div class="container">
-            <h1 class="text-center wow fadeInUp">Book an Appointment</h1>
+            <h1 class="text-center wow fadeInUp" style="font-size: 30px">Book an Appointment</h1>
       
             <form class="main-form">
               <div class="row mt-5 ">
