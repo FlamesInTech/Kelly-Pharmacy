@@ -4,7 +4,7 @@
                <div class="col-md-4">
                    <div class="full">
                       <div class="logo_footer">
-                        <a class="navbar-brand" href="#"> <span class="text-primary">Kelly</span> <span style="color:black">- Pharmacy</span></a>
+                        <a class="navbar-brand" href="{{url('/')}}"> <span class="text-primary">Kelly</span> <span style="color:black">- Pharmacy</span></a>
                         <!-- <a href="#"><img width="210" src="images/logo.png" alt="#" /></a> -->
                       </div>
                       <div class="information_f">
@@ -22,12 +22,10 @@
                      <div class="widget_menu">
                         <h3>Menu</h3>
                         <ul>
-                           <li><a href="#">Home</a></li>
-                           <li><a href="#">About</a></li>
-                           <li><a href="#">Services</a></li>
-                           <li><a href="#">Testimonial</a></li>
-                           <li><a href="#">Blog</a></li>
-                           <li><a href="#">Contact</a></li>
+                           <li><a href="{{url('/')}}">Home</a></li>
+                           <li><a href="">About</a></li>
+                           <li><a href="">Testimonial</a></li>
+                           <li><a href="">Contact</a></li>
                         </ul>
                      </div>
                   </div>
@@ -35,12 +33,11 @@
                      <div class="widget_menu">
                         <h3>Account</h3>
                         <ul>
-                           <li><a href="#">Account</a></li>
-                           <li><a href="#">Checkout</a></li>
-                           <li><a href="#">Login</a></li>
-                           <li><a href="#">Register</a></li>
-                           <li><a href="#">Shopping</a></li>
-                           <li><a href="#">Widget</a></li>
+                           <li><a href="{{ route('profile.show') }}">Profile</a></li>
+                           <li><a href="{{ route('login') }}">Login</a></li>
+                           <li><a href="{{ route('register') }}">Register</a></li>
+                           <li><a href="{{url('show_cart')}}">Cart</a></li>
+                           <li><a href="">Widget</a></li>
                         </ul>
                      </div>
                   </div>
@@ -50,7 +47,7 @@
                      <div class="widget_menu">
                         <h3>Newsletter</h3>
                         <div class="information_f">
-                          <p>Subscribe by our newsletter and get update protidin.</p>
+                          <p>Subscribe by our newsletter and get update.</p>
                         </div>
                         <div class="form_sub">
                            <form>
@@ -71,9 +68,9 @@
       </footer>
 
       <div class="cpy_">
-         <p class="mx-auto">© 2023 All Rights Reserved By <a href="#">Kelly Pharmacy </a><br>
+         <p class="mx-auto">© 2023 All Rights Reserved By <a href="{{url('/')}}">Kelly Pharmacy </a><br>
          
-            Built By <a href="#" target="_blank">FlamesInTech</a>
+            Built By <a href="https://beacons.ai/flamesintech" target="_blank">FlamesInTech</a>
          
          </p>
       </div>

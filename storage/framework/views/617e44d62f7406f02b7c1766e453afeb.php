@@ -31,6 +31,16 @@
       <link href="assets/css/style.css" rel="stylesheet" />
       <!-- responsive style -->
       <link href="assets/css/responsive.css" rel="stylesheet" />
+   
+      <style>
+         .chat{
+            position: fixed;
+            bottom: 3cm;
+            right: 10px;
+            z-index: 99999999;
+         }
+      </style>
+   
    </head>
    <body>
       <!-- <div class="hero_area"> -->
@@ -55,7 +65,7 @@
       <!-- footer start -->
       <?php echo $__env->make('user.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
       <!-- footer end -->
-
+      <a href="http://wa.me/09033231620" target="_blank" rel="noopener noreferrer"><span class="circle-shape bg-success text-white chat mai-chatbubbles-outline"></span></a>
       <!-- jQery -->
       <script src="assets/js/jquery-3.4.1.min.js"></script>
       <!-- popper js -->

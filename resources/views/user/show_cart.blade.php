@@ -37,14 +37,14 @@
       <style>
         .center{
             margin: auto;
-            width: 70%;
+            /* width: 70%; */
             text-align: center;
             padding: 30px;
         }
         table,th,td {
             border: 1px solid grey;
         }
-        .center th {
+        .table th {
             font-size: large;
             padding: 5px;
             background-color: skyblue;
@@ -56,6 +56,33 @@
         .total_deg {
             font-size: 20px;
             padding: 40px;
+        }
+
+        @media (max-width: 700px) {
+            .center{
+                padding: 10px;
+            }
+            table{
+                padding: 0;
+                margin: 0;
+            }
+            .img_deg {
+                height: 50px;
+                width: 80px;
+            }
+            .table th {
+                font-size: smaller;
+            }
+            .total_deg {
+                font-size: smaller;
+                padding: 20px;
+            }
+            td{
+                font-size: smaller;
+            }
+            .btn{
+                font-size: smaller;
+            }
         }
       </style>
    
@@ -77,7 +104,8 @@
         @endif
          
          <div class="center">
-            <table>
+            <div class="table-responsive">
+                <table class="table table-bordered">
                 <tr>
                     <th>Product title</th>
                     <th>Product quantify</th>
@@ -95,7 +123,7 @@
                     <td>{{$cart->quantity}}</td>
                     <td>${{$cart->price}}</td>
                     <td><img class="img_deg" src="/product/{{$cart->image}}" alt=""></td>
-                    <td><a onclick="return confirm('Are you sure to remove this great project?')" href="{{url('/remove_cart', $cart->id)}}" class="btn btn-danger">Remove</a></td>
+                    <td><a onclick="return confirm('Are you sure to remove this great product?')" href="{{url('/remove_cart', $cart->id)}}" class="btn btn-danger">Remove</a></td>
                 </tr>
 
                 <?php $totalprice=$totalprice + $cart->price  ?>
@@ -104,6 +132,8 @@
                 @endforeach
 
             </table>
+            </div>
+            
             <div>
                 <h1 class="total_deg" >Total price : ${{$totalprice}}</h1>
             </div>

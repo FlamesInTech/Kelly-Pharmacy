@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <!-- Required meta tags -->
-    @include('admin.css')
+    <?php echo $__env->make('admin.css', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
     <style>
         .center {
@@ -36,19 +36,20 @@
 <body>
 <div class="container-scroller">
     <!-- partial:partials/_sidebar.html -->
-    @include('admin.sidebar')
+    <?php echo $__env->make('admin.sidebar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <!-- partial -->
-    @include('admin.header')
+    <?php echo $__env->make('admin.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <!-- partial -->
     <div class="main-panel">
         <div class="content-wrapper">
 
-            @if(session()->has('message'))
+            <?php if(session()->has('message')): ?>
                 <div class="alert alert-success">
                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
-                    {{session()->get('message')}}
+                    <?php echo e(session()->get('message')); ?>
+
                 </div>
-            @endif
+            <?php endif; ?>
             <h2 class="font_size">All Products</h2>
             <div class="table-responsive">
                 <table class="center table-bordered"> <!-- Add 'table' and 'table-bordered' classes for table styling -->
@@ -64,21 +65,21 @@
                         <th>Delete</th>
                     </tr>
 
-                    @foreach($product as $product)
+                    <?php $__currentLoopData = $product; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <tr>
-                            <td>{{$product->title}}</td>
-                            <td>{{$product->description}}</td>
-                            <td>{{$product->quantity}}</td>
-                            <td>{{$product->category}}</td>
-                            <td>{{$product->price}}</td>
-                            <td>{{$product->discount_price}}</td>
+                            <td><?php echo e($product->title); ?></td>
+                            <td><?php echo e($product->description); ?></td>
+                            <td><?php echo e($product->quantity); ?></td>
+                            <td><?php echo e($product->category); ?></td>
+                            <td><?php echo e($product->price); ?></td>
+                            <td><?php echo e($product->discount_price); ?></td>
                             <td>
-                                <img class="img_size" src="/product/{{$product->image}}">
+                                <img class="img_size" src="/product/<?php echo e($product->image); ?>">
                             </td>
-                            <td><a class="btn btn-success" href="{{url('update_product',$product->id)}}">Edit</a></td>
-                            <td><a class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this?')" href="{{url('delete_product',$product->id)}}">Delete</a></td>
+                            <td><a class="btn btn-success" href="<?php echo e(url('update_product',$product->id)); ?>">Edit</a></td>
+                            <td><a class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this?')" href="<?php echo e(url('delete_product',$product->id)); ?>">Delete</a></td>
                         </tr>
-                    @endforeach
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </table>
             </div>
         </div>
@@ -86,7 +87,8 @@
 </div>
 <!-- container-scroller -->
 <!-- plugins:js -->
-@include('admin.script')
+<?php echo $__env->make('admin.script', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <!-- End custom js for this page -->
 </body>
 </html>
+<?php /**PATH C:\xampp64\xampp22\htdocs\Hospital\resources\views/admin/show_product.blade.php ENDPATH**/ ?>

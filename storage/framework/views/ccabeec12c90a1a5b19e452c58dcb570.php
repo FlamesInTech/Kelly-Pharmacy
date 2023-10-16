@@ -47,7 +47,7 @@
              <a class="nav-link" href="">About</a>
            </li>
            <li class="nav-item">
-             <a class="nav-link" href="">Products</a>
+             <a class="nav-link" href="<?php echo e(url('/')); ?>">Products</a>
            </li>
            <li class="nav-item">
              <a class="nav-link" href="">Contact</a>
@@ -57,10 +57,10 @@
            </li>
            <?php if(auth()->guard()->guest()): ?>
            <li class="nav-item">
-             <a class="nav-link" href="<?php echo e(route('login')); ?>">Login</a>
+             <a class="nav-link btn btn-primary text-white" style="margin-right: 6px;" href="<?php echo e(route('login')); ?>">login</a>
            </li>
            <li class="nav-item">
-             <a class="nav-link" href="<?php echo e(route('register')); ?>">Register</a>
+             <a class="nav-link btn btn-primary text-white" href="<?php echo e(route('register')); ?>">Register</a>
            </li>
            <?php else: ?>
            <li class="nav-item">
@@ -69,7 +69,7 @@
            <li class="nav-item">
              <form method="POST" action="<?php echo e(route('logout')); ?>">
                <?php echo csrf_field(); ?>
-               <a class="nav-link" href="#" onclick="event.preventDefault(); this.closest('form').submit();">Logout</a>
+               <a class="nav-link btn btn-danger text-white" href="#" onclick="event.preventDefault(); this.closest('form').submit();">Logout</a>
              </form>
            </li>
            <?php endif; ?>

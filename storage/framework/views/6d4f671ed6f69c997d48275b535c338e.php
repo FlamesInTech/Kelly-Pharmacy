@@ -215,4 +215,4 @@
         <!-- main-panel ends -->
       </div>
       <!-- page-body-wrapper ends -->
-    </div>
+    </div><?php /**PATH C:\xampp64\xampp22\htdocs\Hospital\resources\views/admin/body.blade.php ENDPATH**/ ?>

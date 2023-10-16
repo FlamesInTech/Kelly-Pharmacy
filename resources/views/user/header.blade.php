@@ -47,7 +47,7 @@
              <a class="nav-link" href="">About</a>
            </li>
            <li class="nav-item">
-             <a class="nav-link" href="">Products</a>
+             <a class="nav-link" href="{{url('/')}}">Products</a>
            </li>
            <li class="nav-item">
              <a class="nav-link" href="">Contact</a>
@@ -57,10 +57,10 @@
            </li>
            @guest
            <li class="nav-item">
-             <a class="nav-link" href="{{ route('login') }}">Login</a>
+             <a class="nav-link btn btn-primary text-white" style="margin-right: 6px;" href="{{ route('login') }}">login</a>
            </li>
            <li class="nav-item">
-             <a class="nav-link" href="{{ route('register') }}">Register</a>
+             <a class="nav-link btn btn-primary text-white" href="{{ route('register') }}">Register</a>
            </li>
            @else
            <li class="nav-item">
@@ -69,7 +69,7 @@
            <li class="nav-item">
              <form method="POST" action="{{ route('logout') }}">
                @csrf
-               <a class="nav-link" href="#" onclick="event.preventDefault(); this.closest('form').submit();">Logout</a>
+               <a class="nav-link btn btn-danger text-white" href="#" onclick="event.preventDefault(); this.closest('form').submit();">Logout</a>
              </form>
            </li>
            @endguest

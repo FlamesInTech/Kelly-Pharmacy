@@ -2,7 +2,7 @@
 <!-- partial:partials/_navbar.html -->
 <nav class="navbar p-0 fixed-top d-flex flex-row">
     <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
-    <a class="navbar-brand brand-logo-mini" href="{{url('/')}}">Kelly Pharm</a>
+    <a class="navbar-brand brand-logo-mini" href="<?php echo e(url('/')); ?>">Kelly Pharm</a>
     </div>
     <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
     <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -17,8 +17,8 @@
     </ul>
     <ul class="navbar-nav navbar-nav-right">
         <li>
-        <form method="POST" action="{{ route('logout') }}">
-               @csrf
+        <form method="POST" action="<?php echo e(route('logout')); ?>">
+               <?php echo csrf_field(); ?>
                <a class="nav-link btn btn-danger" style="padding: 10px;" href="#" onclick="event.preventDefault(); this.closest('form').submit();">Logout</a>
              </form>
         </li>
@@ -27,4 +27,4 @@
         <span class="mdi mdi-format-line-spacing"></span>
     </button>
     </div>
-</nav>
+</nav><?php /**PATH C:\xampp64\xampp22\htdocs\Hospital\resources\views/admin/header.blade.php ENDPATH**/ ?>
