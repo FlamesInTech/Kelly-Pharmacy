@@ -47,13 +47,14 @@
                     <th>Email</th>
                     <th>Address</th>
                     <th>Phone</th>
-                    <th>Product_title</th>
+                    <th>Product Title</th>
                     <th>Quantity</th>
                     <th>Price</th>
                     <th>Payment Status</th>
                     <th>Delivery Status</th>
                     <th>Image</th>
                     <th>Delivered</th>
+                    <th>Print PDF</th>
                 </tr>
                 <?php $__currentLoopData = $order; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $order): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <tr class="td_deg">
@@ -77,8 +78,16 @@
                     <p style="color: green">Delivered</p>
                     <?php endif; ?>
                     </td>
+                    <td>
+                      <a href="<?php echo e(url('print_pdf', $order->id)); ?>" class="btn btn-secondary">Print PDF</a>
+                    </td>
+                    <td>
+                    <a href="<?php echo e(url('send_email', $order->id)); ?>" class="btn btn-info">Send Email</a>
+                      
+                    </td>
                 </tr>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                
             </table> 
           </div>
           </div>
