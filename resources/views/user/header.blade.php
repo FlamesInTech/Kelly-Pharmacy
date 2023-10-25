@@ -47,13 +47,16 @@
              <a class="nav-link" href="">About</a>
            </li>
            <li class="nav-item">
-             <a class="nav-link" href="{{url('/')}}">Products</a>
+             <a class="nav-link" href="{{url('products')}}">Products</a>
            </li>
            <li class="nav-item">
              <a class="nav-link" href="">Contact</a>
            </li>
            <li class="nav-item">
              <a class="nav-link" href="{{url('show_cart')}}">Cart</a>
+           </li>
+           <li class="nav-item">
+             <a class="nav-link" href="{{url('show_order')}}">Order</a>
            </li>
            @guest
            <li class="nav-item">

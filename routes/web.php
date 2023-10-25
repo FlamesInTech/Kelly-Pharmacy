@@ -5,8 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 
 use App\Http\Controllers\AdminController;
-
-
+use App\Http\Controllers\PaystackController;
+use Unicodeveloper\Paystack\Facades\Paystack;
 
 /*
 |--------------------------------------------------------------------------
@@ -89,3 +89,24 @@ Route::get('/cash_order',[HomeController::class,'cash_order']);
 Route::get('/stripe/{totalprice}',[HomeController::class,'stripe']);
 
 Route::post('stripe/{totalprice}',[HomeController::class,'stripePost'])->name('stripe.post');
+
+Route::get('/products',[HomeController::class,'product']);
+
+Route::get('/show_order',[HomeController::class,'show_order']);
+
+Route::get('/cancel_order/{id}',[HomeController::class,'cancel_order']);
+
+Route::get('/product_search',[HomeController::class,'product_search']);
+
+Route::get('/search_product',[HomeController::class,'search_product']);
+
+
+
+
+
+Route::get('/pay', [PaystackController::class, 'pay']);
+
+Route::post('/pay', [PaystackController::class, 'make_payment'])->name('pay');
+// Route::post('/pay', [PaystackController::class, 'redirectToGateway'])->name('pay');
+// Route::get('/paystack',[PaystackController::class, 'paystack']);
+

@@ -66,6 +66,18 @@
       @include('user.footer')
       <!-- footer end -->
       <a href="http://wa.me/09033231620" target="_blank" rel="noopener noreferrer"><span class="circle-shape bg-success text-white chat mai-chatbubbles-outline"></span></a>
+      
+      <script>
+         document.addEventListener("DOMContentLoaded", function(event){
+            var scrollpos = localStorage.getItem('scrollpos');
+            if(scrollpos) windows.scrollTo(0. scrollpos);
+         });
+
+         windows.onbeforeunload = function(e) {
+            localStorage.setItem('scrollpos', window.scrollY);
+         };
+      </script>
+      
       <!-- jQery -->
       <script src="assets/js/jquery-3.4.1.min.js"></script>
       <!-- popper js -->

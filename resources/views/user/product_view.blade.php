@@ -6,36 +6,35 @@
                </h2>
             </div>
             <div class="search_products" style="text-align: center;">
-               <form action="<?php echo e(url('product_search')); ?>" method="GET">
+               <form action="{{url('search_product')}}" method="GET">
                   <input style="width: 300px; margin:auto;" type="text" name="search" placeholder="Search for a product">
              <br> <br>
                   <input type="submit" value="Search">
                </form>
             </div>
-            <?php if(session()->has('message')): ?>
+            @if(session()->has('message'))
 
             <div class="alert alert-success">
 
             <button type="button" class="close" data-dismiss="alert" arial-hidden="true">x</button>
-            <?php echo e(session()->get('message')); ?>
-
+            {{session()->get('message')}}
             </div>
 
-            <?php endif; ?>
+            @endif
             <div class="row">
 
-            <?php $__currentLoopData = $product; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $products): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            @foreach($product as $products)
 
                <div class="col-sm-6 col-md-4 col-lg-4">
                   <div class="box">
                      <div class="option_container">
                         <div class="options">
-                           <a href="<?php echo e(url('product_details',$products->id)); ?>" class="option1">
+                           <a href="{{url('product_details',$products->id)}}" class="option1">
                            Product details
                            </a>
-                           <form action="<?php echo e(url('add_cart', $products->id)); ?>" method="POST">
+                           <form action="{{url('add_cart', $products->id)}}" method="POST">
 
-                           <?php echo csrf_field(); ?>
+                           @csrf
                               <div class="column">
                                  <div class="col-md-4">
                                   <input type="number" name="quantity" value="1" min="1" style="width:80px">
@@ -50,52 +49,47 @@
                         </div>
                      </div>
                      <div class="img-box">
-                        <img src="product/<?php echo e($products->image); ?>" alt="">
+                        <img src="product/{{$products->image}}" alt="">
                      </div>
                      <div class="detail-box">
                         <h5>
-                           <?php echo e($products->title); ?>
-
+                           {{$products->title}}
                         </h5>
 
-                        <?php if($products->discount_price!=null): ?> 
+                        @if($products->discount_price!=null) 
                   
                            <h6 style="color: red;">
                            <small>Discount Price</small> 
                            <br>
-                              $<?php echo e($products->discount_price); ?>
-
+                              ${{$products->discount_price}}
                            </h6>
 
                            <h6 style="text-decoration:line-through;">
                            <small>Price</small> 
                            <br>
-                               $<?php echo e($products->price); ?>
-
+                               ${{$products->price}}
                            </h6>
 
-                           <?php else: ?>
+                           @else
                            <h6 style="color: blue;">
                            <small>Price</small> 
                            <br>
-                               $<?php echo e($products->price); ?>
-
+                               ${{$products->price}}
                            </h6>
-                        <?php endif; ?>
+                        @endif
 
                        
                      </div>
                   </div>
                </div>
-               <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+               @endforeach
 
                <span style="padding-top: 20px">
-                  <?php echo $product->withQueryString()->links('pagination::bootstrap-5'); ?>
-
+                  {!!$product->withQueryString()->links('pagination::bootstrap-5')!!}
                </span>
 
                
                
             </div>
          </div>
-      </section><?php /**PATH C:\xampp64\xampp22\htdocs\Hospital\resources\views/user/product.blade.php ENDPATH**/ ?>
+      </section>

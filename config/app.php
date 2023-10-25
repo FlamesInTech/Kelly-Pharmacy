@@ -160,6 +160,7 @@ return [
          * Package Service Providers...
          */
         Barryvdh\DomPDF\ServiceProvider::class,
+        Unicodeveloper\Paystack\PaystackServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -190,6 +191,8 @@ return [
         // 'Example' => App\Facades\Example::class,
 
         'PDF' => Barryvdh\DomPDF\Facade::class,
+
+        'Paystack' => Unicodeveloper\Paystack\Facades\Paystack::class,
     ])->toArray(),
 
 ];

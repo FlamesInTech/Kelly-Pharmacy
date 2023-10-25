@@ -57,7 +57,7 @@
             <span class="nav-link">Navigation</span>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="<?php echo e(url('/')); ?>">
+            <a class="nav-link" href="<?php echo e(url('/home')); ?>">
               <span class="menu-icon">
                 <i class="mdi mdi-speedometer"></i>
               </span>

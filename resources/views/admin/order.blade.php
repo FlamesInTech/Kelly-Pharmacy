@@ -41,7 +41,7 @@
           <div class="content-wrapper">
             <div class="title_deg">All Orders</div>
 
-            <div style="padding-left: 20px;" padding-bottom: 30px;>
+            <div style="padding-left: 20px; padding-bottom: 20px; margin: auto;" padding-bottom: 30px;>
               <form action="{{url('search')}}" method="get">
                 @csrf
                 <input type="text" style="color: black;" name="search" placeholder="Search For Something">

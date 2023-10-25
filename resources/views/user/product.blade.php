@@ -5,6 +5,22 @@
                   Our <span>Products</span>
                </h2>
             </div>
+            <div class="search_products" style="text-align: center;">
+               <form action="{{url('product_search')}}" method="GET">
+                  <input style="width: 300px; margin:auto;" type="text" name="search" placeholder="Search for a product">
+             <br> <br>
+                  <input type="submit" value="Search">
+               </form>
+            </div>
+            @if(session()->has('message'))
+
+            <div class="alert alert-success">
+
+            <button type="button" class="close" data-dismiss="alert" arial-hidden="true">x</button>
+            {{session()->get('message')}}
+            </div>
+
+            @endif
             <div class="row">
 
             @foreach($product as $products)

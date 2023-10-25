@@ -47,37 +47,16 @@
          <!-- header section strats -->
             <?php echo $__env->make('user.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
          <!-- end header section -->
-         <!-- slider section -->
-         <?php echo $__env->make('user.hero', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-         <!-- end slider section -->
-      <!-- </div>       -->
+
       
       <!-- product section -->
-         <?php echo $__env->make('user.product', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+         <?php echo $__env->make('user.product_view', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
       <!-- end product section -->
 
-      <!-- subscribe section -->
-      <?php echo $__env->make('user.book', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-      <!-- end subscribe section -->
-      <!-- client section -->
-      <?php echo $__env->make('user.testimonials', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-      <!-- end client section -->
       <!-- footer start -->
       <?php echo $__env->make('user.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
       <!-- footer end -->
       <a href="http://wa.me/09033231620" target="_blank" rel="noopener noreferrer"><span class="circle-shape bg-success text-white chat mai-chatbubbles-outline"></span></a>
-      
-      <script>
-         document.addEventListener("DOMContentLoaded", function(event){
-            var scrollpos = localStorage.getItem('scrollpos');
-            if(scrollpos) windows.scrollTo(0. scrollpos);
-         });
-
-         windows.onbeforeunload = function(e) {
-            localStorage.setItem('scrollpos', window.scrollY);
-         };
-      </script>
-      
       <!-- jQery -->
       <script src="assets/js/jquery-3.4.1.min.js"></script>
       <!-- popper js -->
@@ -100,4 +79,4 @@
 
 
    </body>
-</html><?php /**PATH C:\xampp64\xampp22\htdocs\Hospital\resources\views/user/home.blade.php ENDPATH**/ ?>
+</html><?php /**PATH C:\xampp64\xampp22\htdocs\Hospital\resources\views/user/all_product.blade.php ENDPATH**/ ?>

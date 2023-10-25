@@ -40,6 +40,16 @@
         <div class="main-panel">
           <div class="content-wrapper">
             <div class="title_deg">All Orders</div>
+
+            <div style="padding-left: 20px; padding-bottom: 20px; margin: auto;" padding-bottom: 30px;>
+              <form action="<?php echo e(url('search')); ?>" method="get">
+                <?php echo csrf_field(); ?>
+                <input type="text" style="color: black;" name="search" placeholder="Search For Something">
+
+                <input type="submit" value="Search" class="btn btn-outline-primary">
+              </form>
+            </div>
+
             <div class="table-responsive">
             <table class="table_deg table-bordered">
                 <tr class="th_deg">
@@ -56,7 +66,7 @@
                     <th>Delivered</th>
                     <th>Print PDF</th>
                 </tr>
-                <?php $__currentLoopData = $order; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $order): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <?php $__empty_1 = true; $__currentLoopData = $order; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $order): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                 <tr class="td_deg">
                     <td><?php echo e($order->name); ?></td>
                     <td><?php echo e($order->email); ?></td>
@@ -86,7 +96,13 @@
                       
                     </td>
                 </tr>
-                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+                <tr>
+                  <td colspan="16">
+                    No Data Found
+                  </td>
+                </tr>
+                <?php endif; ?>
                 
             </table> 
           </div>

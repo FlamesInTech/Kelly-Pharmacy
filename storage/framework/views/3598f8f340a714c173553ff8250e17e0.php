@@ -6,7 +6,7 @@
                </h2>
             </div>
             <div class="search_products" style="text-align: center;">
-               <form action="<?php echo e(url('product_search')); ?>" method="GET">
+               <form action="<?php echo e(url('search_product')); ?>" method="GET">
                   <input style="width: 300px; margin:auto;" type="text" name="search" placeholder="Search for a product">
              <br> <br>
                   <input type="submit" value="Search">
@@ -98,4 +98,4 @@
                
             </div>
          </div>
-      </section><?php /**PATH C:\xampp64\xampp22\htdocs\Hospital\resources\views/user/product.blade.php ENDPATH**/ ?>
+      </section><?php /**PATH C:\xampp64\xampp22\htdocs\Hospital\resources\views/user/product_view.blade.php ENDPATH**/ ?>

@@ -33,11 +33,18 @@
       <link href="assets/css/responsive.css" rel="stylesheet" />
    
       <style>
-         .chat{
-            position: fixed;
-            bottom: 3cm;
-            right: 10px;
-            z-index: 99999999;
+         .center{
+            margin: auto;
+            text-align: center;
+            width: 70%;
+            padding: 30px;
+         }
+         table,th,td{
+            border: 1px solid black;
+         }
+         .center th{
+            padding: 10px;
+            font-weight: bold;
          }
       </style>
    
@@ -45,39 +52,41 @@
    <body>
       <!-- <div class="hero_area"> -->
          <!-- header section strats -->
-            <?php echo $__env->make('user.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-         <!-- end header section -->
-         <!-- slider section -->
-         <?php echo $__env->make('user.hero', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-         <!-- end slider section -->
-      <!-- </div>       -->
-      
-      <!-- product section -->
-         <?php echo $__env->make('user.product', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-      <!-- end product section -->
-
-      <!-- subscribe section -->
-      <?php echo $__env->make('user.book', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-      <!-- end subscribe section -->
-      <!-- client section -->
-      <?php echo $__env->make('user.testimonials', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-      <!-- end client section -->
-      <!-- footer start -->
-      <?php echo $__env->make('user.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+            @include('user.header')
+     
+            <div class="table-responsive center">
+                <table>
+                    <tr>
+                        <td>Product Title</td>
+                        <td>Quantity</td>
+                        <td>Price</td>
+                        <td>Payment Status</td>
+                        <td>Delivery Status</td>
+                        <td>Image</td>
+                        <td>Cancel Order</td>
+                    </tr>
+                    @foreach($order as $order)
+                    <tr>
+                        <td>{{$order->product_title}}</td>
+                        <td>{{$order->quantity}}</td>
+                        <td>{{$order->price}}</td>
+                        <td>{{$order->payment_status}}</td>
+                        <td>{{$order->delivery_status}}</td>
+                        <td>
+                            <img height="100" width="120" src="product/{$order->image{}}" alt="">
+                        </td>
+                        <td>
+                            @if($order->delivery_status=='processing')
+                            <a onclick="return Confirm('Are You Sure to Cancel this Order!?)" class="btn btn-damger" href="{{url('cancel_order',$order->id)}}">Cancel Order</a>
+                        @else
+                            <p>Not Allowed</p>
+                        @endif
+                        </td>
+                    </tr>
+                </table>
+            </div>
       <!-- footer end -->
       <a href="http://wa.me/09033231620" target="_blank" rel="noopener noreferrer"><span class="circle-shape bg-success text-white chat mai-chatbubbles-outline"></span></a>
-      
-      <script>
-         document.addEventListener("DOMContentLoaded", function(event){
-            var scrollpos = localStorage.getItem('scrollpos');
-            if(scrollpos) windows.scrollTo(0. scrollpos);
-         });
-
-         windows.onbeforeunload = function(e) {
-            localStorage.setItem('scrollpos', window.scrollY);
-         };
-      </script>
-      
       <!-- jQery -->
       <script src="assets/js/jquery-3.4.1.min.js"></script>
       <!-- popper js -->
@@ -100,4 +109,4 @@
 
 
    </body>
-</html><?php /**PATH C:\xampp64\xampp22\htdocs\Hospital\resources\views/user/home.blade.php ENDPATH**/ ?>
+</html>

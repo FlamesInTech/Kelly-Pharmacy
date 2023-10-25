@@ -7,7 +7,7 @@
 </head>
 <body>
      <h1>Oder Details</h1>
-<img height="200" width="250" src="product/{{$order->image}}" alt="">
+
 
     Customer Name :<h3>{{$order->name}}</h3>
     Customer Email :<h3>{{$order->email}}</h3>
@@ -21,7 +21,8 @@
     Product Status: <h3>{{$order->payment_status}}</h3>
     Product ID: <h3>{{$order->product_id}}</h3>
     <br> <br>
-
+    
+    <img height="200" width="250" src="product/{{$order->image}}" alt="">
     
 
 </body>
