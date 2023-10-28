@@ -24,8 +24,15 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $product=Product::paginate(9);
+        if(Auth::id())
+        {
+            $product=Product::paginate(9);
         return view('user.home', compact('product'));
+        }
+        else{
+            return redirect('login');
+        }
+       
     }
 
     public function redirect()
@@ -59,8 +66,15 @@ class HomeController extends Controller
 
     public function product_details($id)
     {
-        $product=product::find($id);
+        if(Auth::id())
+        {
+           $product=product::find($id);
         return view('user.product_details', compact('product'));
+        }
+        else{
+            return redirect('login');
+        }
+        
     }
 
     public function add_cart(Request $request, $id)
@@ -156,47 +170,61 @@ class HomeController extends Controller
 
     public function remove_cart($id)
     {
-        $cart=cart::find($id);
+        if(Auth::id())
+        {
+           $cart=cart::find($id);
 
         $cart->delete();
 
         return redirect()->back();
+        }
+        else{
+            return redirect('login');
+        }
+        
     }
 
     public function cash_order()
     {
-        $user=Auth::user();
-        $userid=$user->id;
+        if(Auth::id())
+        {
+                $user=Auth::user();
+            $userid=$user->id;
 
-        $data=cart::where('user_id','=',$userid)->get();
+            $data=cart::where('user_id','=',$userid)->get();
 
-        foreach($data as $data) {
-            $order = new order;
+            foreach($data as $data) {
+                $order = new order;
 
-            $order->name=$data->name;
-            $order->email=$data->email;
-            $order->phone=$data->phone;
-            $order->address=$data->address;
-            $order->user_id=$data->user_id;
-            $order->product_title=$data->product_title;
-            $order->price=$data->price;
-            $order->quantity=$data->quantity;
-            $order->image=$data->image;
-            $order->product_id=$data->Product_id;
+                $order->name=$data->name;
+                $order->email=$data->email;
+                $order->phone=$data->phone;
+                $order->address=$data->address;
+                $order->user_id=$data->user_id;
+                $order->product_title=$data->product_title;
+                $order->price=$data->price;
+                $order->quantity=$data->quantity;
+                $order->image=$data->image;
+                $order->product_id=$data->Product_id;
 
-            $order->payment_status='cash on delivery';
+                $order->payment_status='cash on delivery';
 
-            $order->delivery_status='processing';
+                $order->delivery_status='processing';
 
-            $order->save();
+                $order->save();
 
-            $cart_id=$data->id;
-            $cart=cart::find($cart_id);
-            $cart->delete();
+                $cart_id=$data->id;
+                $cart=cart::find($cart_id);
+                $cart->delete();
+            }
+
+            return redirect()->back()->with('message','We have received your order. We will connect with you soon...');
+
         }
-
-        return redirect()->back()->with('message','We have received your order. We will connect with you soon...');
-
+        else{
+            return redirect('login');
+        }
+       
     }
 
     public function stripe($totalprice)
@@ -277,14 +305,21 @@ class HomeController extends Controller
         }
     }
 
-    public function cancel_order()
+    public function cancel_order($id)
     {
-        $order=order::find($id);
-        $order->delivery_status='You canceled the order';
+        if(Auth::id())
+        {
+                $order=order::find($id);
+            $order->delivery_status='You canceled the order';
 
-        $order->save();
+            $order->save();
 
-        return redirect()->back();
+            return redirect()->back();
+        }
+        else{
+            return redirect('login');
+        }
+       
     }
 
     public function product_search(Request $request)

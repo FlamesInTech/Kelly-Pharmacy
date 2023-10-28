@@ -128,7 +128,7 @@
                 </tr>
 
                 <?php $totalprice=$totalprice + $cart->price  ?>
-
+ 
 
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
@@ -141,7 +141,9 @@
             <div>
                 <h1 style="font-size: 25px; padding-bottom: 10px;">Proceed to Order</h1>
                 <a href="<?php echo e(url('cash_order')); ?>" class="btn btn-danger" > Cash On Delivery</a>
-                <a href="<?php echo e(url('stripe',$totalprice)); ?>" class="btn btn-danger" > Pay Using Card</a>
+                <a href="<?php echo e(url('paystack/' . $totalprice)); ?>" class="btn btn-danger">Pay Using Paystack</a>
+
+                <!-- <a href="<?php echo e(url('stripe',$totalprice)); ?>" class="btn btn-danger" > Pay Using Card</a> -->
             </div>
          </div>
 
@@ -171,4 +173,11 @@
       <script src="assets/js/theme.js"></script>
 
    </body>
+   <script>
+    window.addEventListener('beforeunload', function(event) {
+  // Prevent the browser from refreshing.
+  event.preventDefault();
+});
+
+   </script>
 </html><?php /**PATH C:\xampp64\xampp22\htdocs\Hospital\resources\views/user/show_cart.blade.php ENDPATH**/ ?>

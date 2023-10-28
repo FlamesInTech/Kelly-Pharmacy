@@ -104,9 +104,33 @@ Route::get('/search_product',[HomeController::class,'search_product']);
 
 
 
-Route::get('/pay', [PaystackController::class, 'pay']);
 
-Route::post('/pay', [PaystackController::class, 'make_payment'])->name('pay');
+// Route::get('/paystack', 'PaystackController@paystack')->name('user.paystack');
+// Route::get('/paystack/callback', 'PaystackController@paystackCallback')->name('user.paystack_callback');
+
+
+
+
+// Route::get('/pay', [PaystackController::class, 'pay']);
+// Route::post('/pay', [PaystackController::class, 'make_payment'])->name('pay');
+
+
+// Route::get('/user/callback_page', [PaystackController::class, 'payment_callback'])->name('user.callback_page');
+
+
+
+// Route::get('/user/paystack/{totalprice}', [PaystackController::class, 'paystack'])->name('user.paystack');
+// Route::get('/user/paystack_callback', [PaystackController::class, 'paystackCallback'])->name('user.paystack_callback');
+// payment_callback
 // Route::post('/pay', [PaystackController::class, 'redirectToGateway'])->name('pay');
 // Route::get('/paystack',[PaystackController::class, 'paystack']);
 
+Route::get('/paystack/{totalprice}', [PaystackController::class, 'paystack']);
+Route::get('/user/callback_page', [PaystackController::class, 'payment_callback'])->name('user.callback_page');
+
+
+
+// /////
+// Route::get('/pay', [PaymentController::class, 'pay']);
+// Route::post('/pay', [PaymentController::class, 'make_payment'])->name('pay');
+// Route::get('/pay/callback', [PaymentController::class, 'payment_callback'])->name('pay.callback');

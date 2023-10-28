@@ -127,7 +127,7 @@
                 </tr>
 
                 <?php $totalprice=$totalprice + $cart->price  ?>
-
+ 
 
                 @endforeach
 
@@ -140,7 +140,7 @@
             <div>
                 <h1 style="font-size: 25px; padding-bottom: 10px;">Proceed to Order</h1>
                 <a href="{{url('cash_order')}}" class="btn btn-danger" > Cash On Delivery</a>
-                <a href="{{url('stripe',$totalprice)}}" class="btn btn-danger" > Pay Using Card</a>
+                <a href="{{ url('paystack/' . $totalprice) }}" class="btn btn-danger">Pay Using Card</a>
             </div>
          </div>
 
@@ -170,4 +170,11 @@
       <script src="assets/js/theme.js"></script>
 
    </body>
+   <script>
+    window.addEventListener('beforeunload', function(event) {
+  // Prevent the browser from refreshing.
+  event.preventDefault();
+});
+
+   </script>
 </html>
