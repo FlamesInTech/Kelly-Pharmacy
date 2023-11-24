@@ -11,7 +11,7 @@
       <meta name="description" content="" />
       <meta name="author" content="" />
       <link rel="shortcut icon" href="images/favicon.png" type="">
-      <title>Kelly Pharmacy | Home</title>
+      <title>Emma-Side | Home</title>
       <link rel="stylesheet" href="assets/css/maicons.css">
 
       <link rel="stylesheet" href="assets/vendor/owl-carousel/css/owl.carousel.css">

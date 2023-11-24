@@ -4,7 +4,7 @@
                <div class="col-md-4">
                    <div class="full">
                       <div class="logo_footer">
-                        <a class="navbar-brand" href="<?php echo e(url('/')); ?>"> <span class="text-primary">Kelly</span> <span style="color:black">- Pharmacy</span></a>
+                        <a class="navbar-brand" href="<?php echo e(url('/')); ?>"> <span class="text-primary">Emma</span> <span style="color:black">- Side</span></a>
                         <!-- <a href="#"><img width="210" src="images/logo.png" alt="#" /></a> -->
                       </div>
                       <div class="information_f">

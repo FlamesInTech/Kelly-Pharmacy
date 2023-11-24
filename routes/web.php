@@ -8,22 +8,12 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PaystackController;
 use Unicodeveloper\Paystack\Facades\Paystack;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 
 
 
 Route::get( '/',[HomeController::class,'index']);
 
-Route::get('/home',[HomeController::class,'redirect']);
+Route::get('/home',[HomeController::class,'redirect'])->middleware('auth','verified');
 
 Route::middleware([
     'auth:sanctum',
@@ -101,36 +91,8 @@ Route::get('/product_search',[HomeController::class,'product_search']);
 Route::get('/search_product',[HomeController::class,'search_product']);
 
 
-
-
-
-
-// Route::get('/paystack', 'PaystackController@paystack')->name('user.paystack');
-// Route::get('/paystack/callback', 'PaystackController@paystackCallback')->name('user.paystack_callback');
-
-
-
-
-// Route::get('/pay', [PaystackController::class, 'pay']);
-// Route::post('/pay', [PaystackController::class, 'make_payment'])->name('pay');
-
-
-// Route::get('/user/callback_page', [PaystackController::class, 'payment_callback'])->name('user.callback_page');
-
-
-
-// Route::get('/user/paystack/{totalprice}', [PaystackController::class, 'paystack'])->name('user.paystack');
-// Route::get('/user/paystack_callback', [PaystackController::class, 'paystackCallback'])->name('user.paystack_callback');
-// payment_callback
-// Route::post('/pay', [PaystackController::class, 'redirectToGateway'])->name('pay');
-// Route::get('/paystack',[PaystackController::class, 'paystack']);
+// Paystack Routes
 
 Route::get('/paystack/{totalprice}', [PaystackController::class, 'paystack']);
 Route::get('/user/callback_page', [PaystackController::class, 'payment_callback'])->name('user.callback_page');
 
-
-
-// /////
-// Route::get('/pay', [PaymentController::class, 'pay']);
-// Route::post('/pay', [PaymentController::class, 'make_payment'])->name('pay');
-// Route::get('/pay/callback', [PaymentController::class, 'payment_callback'])->name('pay.callback');
